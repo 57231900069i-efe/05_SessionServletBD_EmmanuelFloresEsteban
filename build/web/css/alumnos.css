@@ -1,0 +1,769 @@
+* 
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body 
+{
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f2f5f9;
+  min-height: 100vh;
+  color: #1e293b;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+header 
+{
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+  padding: 0.8rem 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  & .header-content 
+  {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    & img.logo,
+    & img.saice-logo 
+    {
+      height: 50px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      transition: transform 0.3s ease;
+
+      &:hover 
+      {
+        transform: scale(1.05);
+      }
+    }
+
+    & .header-usuario 
+    {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+
+      & .nombre-usuario 
+      {
+        color: #e2e8f0;
+        font-weight: 500;
+        font-size: 0.95rem;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 0.4rem 1rem;
+        border-radius: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      & .btn-logout 
+      {
+        background: rgba(239, 68, 68, 0.2);
+        color: #fca5a5;
+        padding: 0.4rem 1.2rem;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.85rem;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(239, 68, 68, 0.2);
+
+        &:hover 
+        {
+          background: rgba(239, 68, 68, 0.3);
+          border-color: #ef4444;
+          color: #ffffff;
+          transform: translateY(-1px);
+        }
+      }
+    }
+  }
+}
+
+/* TÍTULO PRINCIPAL */
+.titulo-principal 
+{
+  text-align: center;
+  padding: 2.5rem 2rem 1.5rem;
+  background: white;
+  margin: 0 0 2rem 0;
+  border-bottom: 1px solid #e2e8f0;
+
+  & hr 
+  {
+    max-width: 120px;
+    margin: 0 auto;
+    border: none;
+    height: 3px;
+    background: linear-gradient(90deg, #1e3a5f, #3b82f6);
+    border-radius: 4px;
+  }
+
+  & h1 
+  {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0.8rem 0 0.2rem;
+    letter-spacing: -0.02em;
+  }
+
+  & h2 
+  {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #475569;
+    letter-spacing: 1px;
+  }
+}
+
+/* CONTENIDO PRINCIPAL */
+.main-content 
+{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+  flex: 1;
+  width: 100%;
+
+  & > h2 
+  {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    &::before 
+    {
+      content: '\f0c0';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      color: #2a4f7e;
+      font-size: 1.1rem;
+    }
+  }
+
+  & table 
+  {
+    width: 100%;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    border-collapse: collapse;
+    font-size: 0.9rem;
+
+    & thead 
+    {
+      background: #1e3a5f;
+      color: white;
+    }
+
+    & th 
+    {
+      padding: 1rem 1.2rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    & td 
+    {
+      padding: 0.9rem 1.2rem;
+      border-bottom: 1px solid #f1f5f9;
+      color: #1e293b;
+    }
+
+    & tbody 
+    {
+      & tr 
+      {
+        &:hover 
+        {
+          background: #f8fafc;
+          transition: background 0.2s ease;
+        }
+
+        &:last-child td 
+        {
+          border-bottom: none;
+        }
+      }
+    }
+
+    & .btn-accion 
+    {
+      padding: 0.3rem 0.9rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    & .btn-editar 
+    {
+      background: #dbeafe;
+      color: #1e3a5f;
+
+      &:hover 
+      {
+        background: #bfdbfe;
+        transform: scale(1.05);
+      }
+    }
+
+    & .btn-eliminar 
+    {
+      background: #fee2e2;
+      color: #b91c1c;
+
+      &:hover 
+      {
+        background: #fecaca;
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+/* FORMULARIO */
+#form_registro 
+{
+  background: white;
+  padding: 2rem 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  margin-bottom: 2.5rem;
+  border: 1px solid #eef2f6;
+  transition: box-shadow 0.3s ease;
+
+  &:hover 
+  {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  & h2 
+  {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    &::before 
+    {
+      content: '\f0ae';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      color: #2a4f7e;
+      font-size: 1.2rem;
+    }
+  }
+
+  & form 
+  {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    align-items: end;
+  }
+
+  & input[type="text"] 
+  {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    color: #0f172a;
+    outline: none;
+    width: 100%;
+
+    &:focus 
+    {
+      border-color: #2a4f7e;
+      background: white;
+      box-shadow: 0 0 0 4px rgba(42, 79, 126, 0.08);
+    }
+
+    &::placeholder 
+    {
+      color: #94a3b8;
+      font-weight: 400;
+    }
+  }
+}
+
+#btnAccion 
+{
+  padding: 0.75rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  background: #1e3a5f;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(30, 58, 95, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  min-width: 140px;
+
+  &:hover 
+  {
+    background: #143049;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(30, 58, 95, 0.3);
+  }
+
+  &:active 
+  {
+    transform: translateY(0);
+  }
+}
+
+/* Contenedor de la tabla */
+.table-container 
+{
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid #eef2f6;
+  margin: 1.5rem 0;
+  transition: box-shadow 0.3s ease;
+
+  &:hover 
+  {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* Tabla principal */
+.tabla-alumnos 
+{
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.9rem;
+
+  & thead 
+  {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2a4f7e 100%);
+
+    & th 
+    {
+      padding: 1rem 1.2rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+      border-bottom: none;
+
+      & i 
+      {
+        margin-right: 0.5rem;
+        opacity: 0.8;
+      }
+
+      &.text-center 
+      {
+        text-align: center;
+      }
+    }
+  }
+
+  & tbody 
+  {
+    & td 
+    {
+      padding: 0.9rem 1.2rem;
+      border-bottom: 1px solid #f1f5f9;
+      color: #1e293b;
+      vertical-align: middle;
+    }
+
+    & tr 
+    {
+      &:nth-child(even) 
+      {
+        background: #f8fafc;
+      }
+
+      &.fila-alumno 
+      {
+        transition: background 0.2s ease, transform 0.1s ease;
+
+        &:hover 
+        {
+          background: #eff6ff;
+          transform: scale(1.002);
+          box-shadow: 0 2px 8px rgba(30, 58, 95, 0.05);
+        }
+      }
+    }
+  }
+
+  & .nl-cell 
+  {
+    font-weight: 700;
+    color: #1e3a5f;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  & .accion-cell 
+  {
+    padding: 0.5rem 0.8rem;
+    text-align: center;
+    min-width: 120px;
+  }
+}
+
+/* Formularios de acción */
+.form-accion 
+{
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+/* Botón Editar */
+.btn-editar 
+{
+  background: #dbeafe;
+  color: #1e3a5f;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 40px;
+  font-weight: 500;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: 'Inter', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 2px 4px rgba(30, 58, 95, 0.05);
+
+  & i 
+  {
+    font-size: 0.8rem;
+  }
+
+  &:hover 
+  {
+    background: #bfdbfe;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 58, 95, 0.15);
+  }
+
+  &:active 
+  {
+    transform: translateY(0);
+  }
+}
+
+/* Botón Eliminar */
+.btn-eliminar 
+{
+  background: #fee2e2;
+  color: #b91c1c;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 40px;
+  font-weight: 500;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: 'Inter', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 2px 4px rgba(185, 28, 28, 0.05);
+
+  & i 
+  {
+    font-size: 0.8rem;
+  }
+
+  &:hover 
+  {
+    background: #fecaca;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(185, 28, 28, 0.15);
+  }
+
+  &:active 
+  {
+    transform: translateY(0);
+  }
+}
+
+/* FOOTER */
+footer 
+{
+  background: #0f172a;
+  color: #cbd5e1;
+  margin-top: 3rem;
+  padding: 2.5rem 2rem 1.5rem;
+
+  & .footer-content 
+  {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    & .footer-seccion 
+    {
+      & h3 
+      {
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        letter-spacing: 0.5px;
+      }
+
+      & p 
+      {
+        font-size: 0.85rem;
+        line-height: 1.8;
+        color: #94a3b8;
+      }
+
+      & img 
+      {
+        height: 40px;
+        width: auto;
+        filter: brightness(0) invert(1);
+        opacity: 0.8;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  & .footer-copyright 
+  {
+    max-width: 1400px;
+    margin: 1.5rem auto 0;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #64748b;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) 
+{
+  header 
+  {
+    padding: 0.8rem 1rem;
+
+    & .header-content 
+    {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.8rem;
+
+      & img.logo,
+      & img.saice-logo 
+      {
+        height: 40px;
+      }
+
+      & .header-usuario 
+      {
+        justify-content: center;
+      }
+    }
+  }
+
+  .titulo-principal 
+  {
+    & h1 
+    {
+      font-size: 1.6rem;
+    }
+
+    & h2 
+    {
+      font-size: 0.95rem;
+    }
+  }
+
+  .main-content 
+  {
+    padding: 0 1rem 1.5rem;
+
+    & table 
+    {
+      font-size: 0.8rem;
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+
+      & th,
+      & td 
+      {
+        padding: 0.7rem 0.8rem;
+      }
+    }
+  }
+
+  #form_registro 
+  {
+    padding: 1.5rem 1.2rem;
+
+    & form 
+    {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  #btnAccion 
+  {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .table-container 
+  {
+    border-radius: 12px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tabla-alumnos 
+  {
+    font-size: 0.8rem;
+    min-width: 600px;
+
+    & thead th,
+    & tbody td 
+    {
+      padding: 0.7rem 0.8rem;
+    }
+
+    & .accion-cell 
+    {
+      min-width: 80px;
+      padding: 0.3rem 0.4rem;
+    }
+  }
+
+  .btn-editar,
+  .btn-eliminar 
+  {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.7rem;
+    gap: 0.3rem;
+
+    & i 
+    {
+      font-size: 0.7rem;
+    }
+  }
+
+  footer 
+  {
+    & .footer-content 
+    {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 1.5rem;
+
+      & .footer-seccion img 
+      {
+        margin: 0.5rem auto 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) 
+{
+  .titulo-principal 
+  {
+    padding: 1.5rem 1rem 1rem;
+
+    & h1 
+    {
+      font-size: 1.3rem;
+    }
+  }
+
+  #form_registro h2 
+  {
+    font-size: 1.1rem;
+  }
+
+  header .header-content .header-usuario 
+  {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .tabla-alumnos 
+  {
+    font-size: 0.7rem;
+    min-width: 500px;
+
+    & thead th,
+    & tbody td 
+    {
+      padding: 0.5rem 0.6rem;
+    }
+  }
+
+  .btn-editar,
+  .btn-eliminar 
+  {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.65rem;
+  }
+}
+
+/* Accesibilidad */
+input:focus-visible,
+button:focus-visible,
+a:focus-visible 
+{
+  outline: 2px solid #2a4f7e;
+  outline-offset: 2px;
+}

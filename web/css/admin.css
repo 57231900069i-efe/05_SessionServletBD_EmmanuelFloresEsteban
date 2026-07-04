@@ -1,0 +1,514 @@
+* 
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body 
+{
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f2f5f9;
+  min-height: 100vh;
+  color: #1e293b;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 80px;
+}
+
+/* HEADER */
+header 
+{
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+  color: white;
+  padding: 1.2rem 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  & .header-content 
+  {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    & h1 
+    {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      & i 
+      {
+        color: #3b82f6;
+      }
+    }
+
+    & .user-info 
+    {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+
+      & p 
+      {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #e2e8f0;
+
+        & strong 
+        {
+          color: white;
+          font-weight: 600;
+        }
+      }
+    }
+
+    & .nav-links 
+    {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+
+      & a 
+      {
+        color: #e2e8f0;
+        text-decoration: none;
+        padding: 0.4rem 1rem;
+        border-radius: 40px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.05);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+
+        &:hover 
+        {
+          background: rgba(255, 255, 255, 0.15);
+          border-color: rgba(255, 255, 255, 0.3);
+          transform: translateY(-2px);
+        }
+
+        & i 
+        {
+          font-size: 0.9rem;
+        }
+
+        &.btn-logout 
+        {
+          background: rgba(239, 68, 68, 0.2);
+          border-color: rgba(239, 68, 68, 0.3);
+          color: #fca5a5;
+
+          &:hover 
+          {
+            background: rgba(239, 68, 68, 0.3);
+            border-color: #ef4444;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* MAIN */
+.admin-main 
+{
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  width: 100%;
+  flex: 1;
+}
+
+/* Mensajes */
+.mensaje-error 
+{
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-left: 5px solid;
+  background: #fef2f2;
+  color: #b91c1c;
+  border-left-color: #b91c1c;
+
+  &::before 
+  {
+    content: '\f071';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 1.1rem;
+  }
+}
+
+.mensaje-exito 
+{
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-left: 5px solid;
+  background: #f0fdf4;
+  color: #15803d;
+  border-left-color: #15803d;
+
+  &::before 
+  {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 1.1rem;
+  }
+}
+
+/* Secciones */
+.admin-section 
+{
+  background: white;
+  padding: 1.8rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border: 1px solid #eef2f6;
+  transition: box-shadow 0.3s ease;
+
+  &:hover 
+  {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  & h2 
+  {
+    margin: 0 0 1.5rem 0;
+    color: #0f172a;
+    font-size: 1.3rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-bottom: 3px solid #e2e8f0;
+    padding-bottom: 0.8rem;
+
+    & i 
+    {
+      color: #2a4f7e;
+    }
+  }
+}
+
+/* Tablas */
+.table-container 
+{
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
+}
+
+table 
+{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+
+  & thead 
+  {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2a4f7e 100%);
+
+    & th 
+    {
+      padding: 1rem 1.2rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: white;
+      white-space: nowrap;
+
+      & i 
+      {
+        margin-right: 0.5rem;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  & tbody 
+  {
+    & td 
+    {
+      padding: 0.9rem 1.2rem;
+      border-bottom: 1px solid #f1f5f9;
+      color: #1e293b;
+      vertical-align: middle;
+    }
+
+    & tr 
+    {
+      transition: background 0.2s ease;
+
+      &:hover 
+      {
+        background: #f8fafc;
+      }
+
+      &:last-child td 
+      {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+/* Estados */
+.estado-activo 
+{
+  color: #15803d;
+  font-weight: 600;
+  background: #dcfce7;
+  padding: 0.2rem 0.8rem;
+  border-radius: 40px;
+  font-size: 0.8rem;
+  display: inline-block;
+}
+
+.estado-inactivo 
+{
+  color: #f59e0b;
+  font-weight: 600;
+  background: #fef3c7;
+  padding: 0.2rem 0.8rem;
+  border-radius: 40px;
+  font-size: 0.8rem;
+  display: inline-block;
+}
+
+.estado-rechazado 
+{
+  color: #b91c1c;
+  font-weight: 600;
+  background: #fee2e2;
+  padding: 0.2rem 0.8rem;
+  border-radius: 40px;
+  font-size: 0.8rem;
+  display: inline-block;
+}
+
+/* Botones de acción */
+.btn-accion 
+{
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 40px;
+  font-weight: 500;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: 'Inter', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin: 0.1rem;
+
+  &.btn-activar 
+  {
+    background: #dcfce7;
+    color: #15803d;
+
+    &:hover 
+    {
+      background: #bbf7d0;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(21, 128, 61, 0.15);
+    }
+  }
+
+  &.btn-rechazar 
+  {
+    background: #fee2e2;
+    color: #b91c1c;
+
+    &:hover 
+    {
+      background: #fecaca;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(185, 28, 28, 0.15);
+    }
+  }
+}
+
+.no-data 
+{
+  text-align: center;
+  color: #94a3b8;
+  font-style: italic;
+  padding: 2rem 0;
+}
+
+/* FOOTER */
+footer 
+{
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 1.2rem 2rem;
+  text-align: center;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  & p 
+  {
+    font-size: 0.8rem;
+    margin: 0;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) 
+{
+  header 
+  {
+    padding: 1rem;
+
+    & .header-content 
+    {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.8rem;
+
+      & h1 
+      {
+        font-size: 1.2rem;
+        justify-content: center;
+      }
+
+      & .user-info 
+      {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+
+        & p 
+        {
+          font-size: 0.8rem;
+          text-align: center;
+        }
+      }
+
+      & .nav-links 
+      {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  }
+
+  .admin-main 
+  {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .admin-section 
+  {
+    padding: 1.2rem 1rem;
+
+    & h2 
+    {
+      font-size: 1.1rem;
+    }
+  }
+
+  table 
+  {
+    font-size: 0.8rem;
+    min-width: 600px;
+
+    & thead th,
+    & tbody td 
+    {
+      padding: 0.6rem 0.8rem;
+    }
+  }
+
+  .btn-accion 
+  {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.7rem;
+  }
+
+  footer 
+  {
+    position: relative;
+    padding: 1rem;
+  }
+
+  body 
+  {
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) 
+{
+  header .header-content h1 
+  {
+    font-size: 1rem;
+  }
+
+  .admin-section h2 
+  {
+    font-size: 0.95rem;
+  }
+
+  table 
+  {
+    font-size: 0.7rem;
+    min-width: 480px;
+
+    & thead th,
+    & tbody td 
+    {
+      padding: 0.4rem 0.6rem;
+    }
+  }
+
+  .btn-accion 
+  {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.65rem;
+  }
+}
+
+/* Accesibilidad */
+button:focus-visible,
+a:focus-visible 
+{
+  outline: 2px solid #2a4f7e;
+  outline-offset: 2px;
+}

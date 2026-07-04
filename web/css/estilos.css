@@ -1,0 +1,211 @@
+* 
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body 
+{
+  background: #f9f9f9;
+  text-align: center;
+
+  & h2 
+  {
+    margin-bottom: 15px;
+    color: #333;
+  }
+}
+
+header 
+{
+  background-color: #34495e;
+  padding: 20px;
+
+  .header-content 
+  {
+    max-width: 1400px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .logo 
+  {
+    float: left;
+    max-width: 500px;
+  }
+
+  .saice-logo 
+  {
+    float: right;
+    max-width: 500px;
+  }
+}
+
+#form_registro 
+{
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+  overflow: hidden;
+
+  & h2 
+  {
+    margin-bottom: 20px;
+  }
+
+  & input[type="text"],
+  & input[type="number"] 
+  {
+    float: left;
+    width: 48%;
+    margin: 1%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+}
+
+#btnAccion 
+{
+  float: left;
+  width: 98%;
+  margin: 1%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background: #0078d7;
+  color: #fff;
+  font-size: 16px;
+
+  &:hover 
+  {
+    background: #005fb8;
+  }
+}
+
+table 
+{
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: #fff;
+
+  & th 
+  {
+    background: #0078d7;
+    color: #fff;
+    padding: 12px;
+  }
+
+  & td 
+  {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+
+  & tr:nth-child(even) 
+  {
+    background: #f8f9fa;
+  }
+}
+
+.btn-editar 
+{
+  background: #28a745;
+  color: #fff;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+
+  &:hover 
+  {
+    background: #218838;
+  }
+}
+
+.btn-eliminar 
+{
+  background: #dc3545;
+  color: #fff;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+
+  &:hover 
+  {
+    background: #c82333;
+  }
+}
+
+footer 
+{
+  margin-top: 50px;
+  padding: 40px 20px;
+  color: #fff;
+  background: #2c3e50;
+
+  .footer-content 
+  {
+    max-width: 1400px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .footer-seccion 
+  {
+    float: left;
+    width: 30%;
+    margin: 1.5%;
+
+    & h3 
+    {
+      margin-bottom: 10px;
+      border-bottom: 2px solid #00bcd4;
+    }
+
+    & p 
+    {
+      margin: 10px 0;
+      color: #bdc3c7;
+    }
+
+    & img 
+    {
+      max-width: 150px;
+      margin-top: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) 
+{
+  #form_registro 
+  {
+    & input[type="text"],
+    & input[type="number"] 
+    {
+      width: 98%;
+    }
+  }
+
+  .footer-seccion 
+  {
+    width: 100%;
+    float: none;
+  }
+
+  .logo,
+  .saice-logo 
+  {
+    float: none;
+    display: block;
+    margin: 10px auto;
+  }
+}
